@@ -46,6 +46,65 @@
             position: relative;
         }
 
+        /* --- شاشة التحميل (Preloader Styles) --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 7, 18, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .preloader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(0, 210, 255, 0.1);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spinLoader 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            box-shadow: 0 0 25px var(--primary-glow);
+        }
+
+        @keyframes spinLoader {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--primary-glow);
+            font-weight: 600;
+        }
+
+        .preloader-text span {
+            color: var(--primary);
+        }
+
+        .loaded #preloader {
+            opacity: 0;
+            visibility: hidden;
+        }
+        /* --- نهاية شاشة التحميل --- */
+
         .bg-hero {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -118,7 +177,7 @@
         }
 
         .menu-toggle-btn:hover {
-            background: var(--primary); color: #000;
+            background: var(--primary); color: #000; 
             box-shadow: 0 0 20px var(--primary-glow);
             transform: rotate(90deg);
         }
@@ -396,6 +455,14 @@
 </head>
 <body>
 
+    <!-- شاشة التحميل (Preloader HTML) -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Татьяна <span>Куртукова</span>...</div>
+        </div>
+    </div>
+
     <!-- شريط الأدمن الوحيد في الصفحة -->
     <div class="admin-badge-bar">
         <i class="fas fa-crown" style="color: var(--accent-gold);"></i> Official Fan Community Manager &nbsp;|&nbsp; Admin: <span>Khalil</span>
@@ -499,6 +566,11 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        /* --- كود إخفاء شاشة التحميل بمجرد تحميل الصفحة بالكامل --- */
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
         AOS.init({ duration: 900, once: true });
 
         function toggleMenu() {
