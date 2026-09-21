@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Татьяна Куртукова — Официальное фан-сообщество | Admin: Khalil</title>
+    <title>Татьяна Куртукова — Официальное фан-сообщество</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
@@ -46,7 +46,6 @@
             position: relative;
         }
 
-        /* خلفية حية متحركة */
         .bg-hero {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -64,7 +63,6 @@
             z-index: -2; pointer-events: none;
         }
 
-        /* جزيئات النجوم المتحركة في الخلفية لإضافة حياة */
         .particles {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; pointer-events: none;
@@ -75,7 +73,6 @@
         }
         @keyframes moveParticles { 0% { background-position: 0 0; } 100% { background-position: 1000px 1000px; } }
 
-        /* شريط الأدمن المميز */
         .admin-badge-bar {
             background: linear-gradient(90deg, rgba(0,210,255,0.2), rgba(255,215,0,0.2));
             border-bottom: 1px solid var(--primary);
@@ -221,28 +218,11 @@
             100% { transform: scale(1.05); box-shadow: 0 0 50px rgba(0, 210, 255, 0.9); }
         }
 
-        /* شارة حالة الأدمن تحت الصورة */
-        .admin-tag {
-            display: inline-block;
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
-            color: #000;
-            font-weight: bold;
-            font-size: 0.85rem;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-top: -12px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 15px var(--primary-glow);
-            letter-spacing: 1px;
-        }
-
         h1 { color: var(--text-light); margin: 15px 0 5px; font-size: 2.8rem; letter-spacing: 2px; text-shadow: 0 0 20px rgba(255,255,255,0.4); }
         h1 span { color: var(--primary); }
 
         .subtitle { color: #a5b4fc; font-size: 1.15rem; margin-bottom: 15px; font-weight: 500; }
 
-        /* عداد زوار الحية */
         .live-stats {
             display: inline-flex;
             align-items: center;
@@ -334,7 +314,6 @@
 
         .dot.active { background-color: var(--primary); transform: scale(1.4); box-shadow: 0 0 10px var(--primary-glow); }
 
-        /* تنسيقات عجلة حظ تاتيانا */
         .roulette-box {
             display: flex; flex-direction: column; align-items: center; gap: 15px;
         }
@@ -387,7 +366,6 @@
 
         .btn-roulette:active { transform: scale(0.95); }
 
-        /* تأثير إعجاب زوار الصفحة التفاعلي الجديد */
         .fan-love-box {
             display: flex;
             justify-content: center;
@@ -418,7 +396,7 @@
 </head>
 <body>
 
-    <!-- شريط الأدمن المميز باسمك -->
+    <!-- شريط الأدمن الوحيد في الصفحة -->
     <div class="admin-badge-bar">
         <i class="fas fa-crown" style="color: var(--accent-gold);"></i> Official Fan Community Manager &nbsp;|&nbsp; Admin: <span>Khalil</span>
     </div>
@@ -453,7 +431,7 @@
 
     <div class="news-ticker">
         <div class="news-ticker-content">
-            ✨ Добро пожаловать на официальный фан-сайт Татьяны Куртуковой! (Admin: Khalil) &nbsp;&nbsp;&nbsp; 📅 Сольные концерты: Ярославль (8 октября) | Иваново (9 октября) &nbsp;&nbsp;&nbsp; 🎟️ Билеты уже в продаже на тур «Матушка-Земля»!
+            ✨ Добро пожаловать на официальный фан-сайт Татьяны Куртуковой! &nbsp;&nbsp;&nbsp; 📅 Сольные концерты: Ярославль (8 октября) | Иваново (9 октября) &nbsp;&nbsp;&nbsp; 🎟️ Билеты уже в продаже на тур «Матушка-Земля»!
         </div>
     </div>
 
@@ -461,7 +439,6 @@
         <div class="avatar-container">
             <img class="avatar-glow" src="profile.jpg" alt="Татьяна Куртукова">
         </div>
-        <div class="admin-tag"><i class="fas fa-shield-alt"></i> Official Admin: Khalil</div>
         <h1>Татьяна <span>Куртукова</span></h1>
         <div class="subtitle">Официальное фан-сообщество & Творчество</div>
         
@@ -631,7 +608,6 @@
             }, 80);
         }
 
-        // تفاعل زر الإعجاب الداعم
         let liked = false;
         function addLike() {
             let likeCountElem = document.getElementById('likeCount');
@@ -644,7 +620,6 @@
             }
         }
 
-        // تحديث حي لعدد المتواجدين بشكل وهمي ديناميكي لطيف
         setInterval(() => {
             let onlineElem = document.getElementById('onlineCount');
             let current = parseInt(onlineElem.innerText);
